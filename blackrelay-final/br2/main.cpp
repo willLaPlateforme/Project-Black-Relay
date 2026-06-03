@@ -5,7 +5,7 @@
 #include "Affichage/Game/Includes/Game.hpp"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "Tower Defense - Black Relay",
+    sf::RenderWindow window(sf::VideoMode({1448, 1030}), "Tower Defense - Black Relay",
                             sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(60);
 

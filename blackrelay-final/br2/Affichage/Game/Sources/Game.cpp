@@ -15,8 +15,8 @@ GameView::GameView(sf::RenderWindow& window) : _window(window) {
         _mapSprite.emplace(_mapTexture);
         auto size = _mapTexture.getSize();
         // Mise à l'échelle pour couvrir 800x550 (zone de jeu sous le HUD)
-        _mapSprite->setScale({800.f / size.x, 550.f / size.y});
-        _mapSprite->setPosition({0.f, 50.f});
+        _mapSprite->setScale({1.f, 1.f});  // pas de redimensionnement
+_mapSprite->setPosition({0.f, 50.f});
     }
 
     _setupHUD();
@@ -42,7 +42,7 @@ void GameView::render(Game& game) {
 }
 
 void GameView::_setupHUD() {
-    _hudBar.setSize({800.f, 50.f});
+    _hudBar.setSize({1448.f, 50.f});
     _hudBar.setFillColor(sf::Color(10, 10, 14, 220));
     auto init = [&](std::optional<sf::Text>& t, float x, const std::string& s) {
         t->setCharacterSize(16); t->setFillColor(sf::Color::White);
@@ -60,7 +60,7 @@ void GameView::_drawGame(Game& game) {
     if (_hasMapBg && _mapSprite) {
         _window.draw(*_mapSprite);
         // Légère couche sombre pour que les ennemis/tours restent lisibles
-        sf::RectangleShape overlay({800.f, 550.f});
+        sf::RectangleShape overlay({1448.f, 1036.f});
         overlay.setPosition({0.f, 50.f});
         overlay.setFillColor(sf::Color(0, 0, 0, 60));
         _window.draw(overlay);
@@ -104,20 +104,27 @@ void GameView::_drawGame(Game& game) {
 
     // ── 6. HUD PAR DESSUS TOUT ────────────────────────────────────────────────
     _drawHUD(game);
+    sf::Vector2i mp = sf::Mouse::getPosition(_window);
+sf::Text dbg(_font);
+dbg.setCharacterSize(16);
+dbg.setFillColor(sf::Color::Yellow);
+dbg.setString("X:" + std::to_string(mp.x) + " Y:" + std::to_string(mp.y));
+dbg.setPosition({600.f, 16.f});
+_window.draw(dbg);
 }
 
 void GameView::_drawGrid() {
-    for (int x = 0; x <= 800; x += 40) {
+    for (int x = 0; x <= 1448; x += 40) {
         sf::Vertex line[] = {
             sf::Vertex{sf::Vector2f((float)x, 50.f),  sf::Color(255,255,255,10)},
-            sf::Vertex{sf::Vector2f((float)x, 600.f), sf::Color(255,255,255,10)}
+            sf::Vertex{sf::Vector2f((float)x, 1086.f), sf::Color(255,255,255,10)}
         };
         _window.draw(line, 2, sf::PrimitiveType::Lines);
     }
-    for (int y = 50; y <= 600; y += 40) {
+    for (int y = 50; y <= 1086; y += 40) {
         sf::Vertex line[] = {
             sf::Vertex{sf::Vector2f(0.f,   (float)y), sf::Color(255,255,255,10)},
-            sf::Vertex{sf::Vector2f(800.f, (float)y), sf::Color(255,255,255,10)}
+            sf::Vertex{sf::Vector2f(1448.f, (float)y), sf::Color(255,255,255,10)}
         };
         _window.draw(line, 2, sf::PrimitiveType::Lines);
     }
@@ -234,7 +241,7 @@ void GameView::_drawBlackRelay(const std::vector<sf::Vector2f>& path) {
 
 void GameView::_drawHUD(Game& game) {
     _window.draw(_hudBar);
-    sf::RectangleShape sep({800.f, 1.f});
+    sf::RectangleShape sep({1448.f, 1.f});
     sep.setFillColor(sf::Color(200, 30, 30, 120));
     sep.setPosition({0.f, 50.f});
     _window.draw(sep);
@@ -249,13 +256,13 @@ void GameView::_drawHUD(Game& game) {
         alert.setCharacterSize(11);
         alert.setFillColor(sf::Color(200, 30, 30));
         alert.setString("// VAGUE EN COURS");
-        alert.setPosition({650.f, 16.f});
+        alert.setPosition({1200.f, 16.f});
         _window.draw(alert);
     }
 
-    sf::RectangleShape botBar({800.f, 22.f});
+    sf::RectangleShape botBar({1448.f, 22.f});
     botBar.setFillColor(sf::Color(10, 10, 14, 210));
-    botBar.setPosition({0.f, 578.f});
+    botBar.setPosition({0.f, 1058.f});
     _window.draw(botBar);
 
     bool farm = game.isFarmPhase();
@@ -264,7 +271,7 @@ void GameView::_drawHUD(Game& game) {
         ft.setCharacterSize(11);
         ft.setFillColor(sf::Color(80, 220, 80));
         ft.setString("// PHASE FARM – Deploiement gratuit (vagues 1-3)");
-        ft.setPosition({10.f, 560.f});
+        ft.setPosition({10.f, 1040.f});
         _window.draw(ft);
     }
 
@@ -282,62 +289,62 @@ void GameView::_drawHUD(Game& game) {
         t.setFillColor(selected ? sf::Color(220, 220, 80) : sf::Color(110, 110, 110));
         std::string costStr = farm ? "FREE" : std::to_string(cost);
         t.setString("[" + key + "] " + name + " (" + costStr + ")");
-        t.setPosition({x, 581.f}); _window.draw(t);
+        t.setPosition({x, 1062.f}); _window.draw(t);
     };
     drawKey("1", "sniper",        10.f);
-    drawKey("2", "heavy_gunner", 175.f);
-    drawKey("3", "elementalist", 355.f);
+    drawKey("2", "heavy_gunner", 300.f);
+    drawKey("3", "elementalist", 590.f);
 
     sf::Text misc(_font); misc.setCharacterSize(11);
     misc.setFillColor(sf::Color(70, 70, 70));
     misc.setString("[ESPACE] Vague  [P] Pause  [ESC] Menu");
-    misc.setPosition({545.f, 581.f}); _window.draw(misc);
+    misc.setPosition({1000.f, 1062.f}); _window.draw(misc);
 }
 
 void GameView::_drawPause() {
-    sf::RectangleShape overlay({800.f, 600.f});
+    sf::RectangleShape overlay({1448.f, 1086.f});
     overlay.setFillColor(sf::Color(0, 0, 0, 160));
     _window.draw(overlay);
     sf::RectangleShape panel({320.f, 200.f});
     panel.setFillColor(sf::Color(10, 10, 14, 235));
     panel.setOutlineColor(sf::Color(200, 30, 30, 160));
     panel.setOutlineThickness(1.f);
-    panel.setPosition({240.f, 200.f}); _window.draw(panel);
+    panel.setPosition({564.f, 443.f}); _window.draw(panel);
     sf::RectangleShape tl({320.f, 2.f});
     tl.setFillColor(sf::Color(200, 30, 30));
-    tl.setPosition({240.f, 200.f}); _window.draw(tl);
+    tl.setPosition({564.f, 443.f}); _window.draw(tl);
     sf::Text t(_font); t.setCharacterSize(28);
     t.setFillColor(sf::Color::White);
-    t.setString("// PAUSE"); t.setPosition({290.f, 218.f}); _window.draw(t);
+    t.setString("// PAUSE"); t.setPosition({614.f, 461.f}); _window.draw(t);
     sf::Text sub(_font); sub.setCharacterSize(16);
     sub.setFillColor(sf::Color(160, 160, 160));
     sub.setString("[P]    Reprendre\n[ESC]  Menu principal");
-    sub.setPosition({270.f, 278.f}); _window.draw(sub);
+    sub.setPosition({594.f, 521.f}); _window.draw(sub);
 }
 
 void GameView::_drawEndScreen(bool victory) {
-    sf::RectangleShape overlay({800.f, 600.f});
+    sf::RectangleShape overlay({1448.f, 1086.f});
     overlay.setFillColor(sf::Color(0, 0, 0, 180));
     _window.draw(overlay);
     sf::RectangleShape panel({420.f, 240.f});
     panel.setFillColor(sf::Color(10, 10, 14, 240));
     panel.setOutlineColor(victory ? sf::Color(80, 220, 80, 180) : sf::Color(200, 30, 30, 180));
     panel.setOutlineThickness(2.f);
-    panel.setPosition({190.f, 170.f}); _window.draw(panel);
+    panel.setPosition({514.f, 413.f}); _window.draw(panel);
     sf::RectangleShape tl({420.f, 2.f});
     tl.setFillColor(victory ? sf::Color(80, 220, 80) : sf::Color(200, 30, 30));
-    tl.setPosition({190.f, 170.f}); _window.draw(tl);
+    tl.setPosition({514.f, 413.f}); _window.draw(tl);
     sf::Text t(_font); t.setCharacterSize(38);
     t.setFillColor(victory ? sf::Color(80, 220, 80) : sf::Color(220, 60, 60));
     t.setString(victory ? "// VICTOIRE" : "// DEFAITE");
-    t.setPosition({210.f, 188.f}); _window.draw(t);
+    t.setPosition({534.f, 431.f}); _window.draw(t);
     sf::Text sub(_font); sub.setCharacterSize(16);
     sub.setFillColor(sf::Color(160, 160, 160));
     sub.setString(victory ? "Le Black Relay est securise, Commandant."
                           : "Le Black Relay est tombe. Recommencer ?");
-    sub.setPosition({210.f, 260.f}); _window.draw(sub);
+    sub.setPosition({534.f, 503.f}); _window.draw(sub);
     sf::Text action(_font); action.setCharacterSize(14);
     action.setFillColor(sf::Color(80, 80, 80));
     action.setString("[ENTREE] Rejouer          [ESC] Menu");
-    action.setPosition({230.f, 360.f}); _window.draw(action);
+    action.setPosition({554.f, 603.f}); _window.draw(action);
 }
