@@ -1,0 +1,159 @@
+{
+  "units": [
+    {
+      "id": "vanguard",
+      "name": "Vanguard",
+      "pv": 300,
+      "shards": 50,
+      "dps": 25,
+      "portee": "courte",
+      "upgrade1": "+75 PV",
+      "upgrade2": "Blocage renforcé (120)"
+    },
+    {
+      "id": "guardian",
+      "name": "Guardian",
+      "pv": 600,
+      "shards": 80,
+      "dps": 15,
+      "portee": "courte",
+      "upgrade1": "+100 PV",
+      "upgrade2": "Armure (150)"
+    },
+    {
+      "id": "sniper",
+      "name": "Sniper",
+      "pv": 150,
+      "shards": 70,
+      "dps": 60,
+      "portee": "tres_longue",
+      "upgrade1": "+Dégâts (90)",
+      "upgrade2": "Tir perforant (140)"
+    },
+    {
+      "id": "assault",
+      "name": "Assault",
+      "pv": 250,
+      "shards": 60,
+      "dps": 40,
+      "portee": "moyenne",
+      "upgrade1": "+DPS (80)",
+      "upgrade2": "Attaque double (130)"
+    },
+    {
+      "id": "heavy_gunner",
+      "name": "Heavy Gunner",
+      "pv": 350,
+      "shards": 100,
+      "dps": 50,
+      "type_degats": "aoe",
+      "portee": "moyenne",
+      "upgrade1": "+AoE (110)",
+      "upgrade2": "Rafale (160)"
+    },
+    {
+      "id": "medic",
+      "name": "Medic",
+      "pv": 200,
+      "shards": 65,
+      "dps": 0,
+      "portee": "moyenne",
+      "upgrade1": "Soin +10/s (85)",
+      "upgrade2": "Soin de zone (135)"
+    },
+    {
+      "id": "tactician",
+      "name": "Tactician",
+      "pv": 200,
+      "shards": 75,
+      "dps": 20,
+      "portee": "moyenne",
+      "upgrade1": "Debuff vitesse -20% (95)",
+      "upgrade2": "Debuff dégâts -15% (145)"
+    },
+    {
+      "id": "elementalist",
+      "name": "Elementalist",
+      "pv": 180,
+      "shards": 85,
+      "dps": 45,
+      "type_degats": "aoe",
+      "portee": "longue",
+      "upgrade1": "+Élémental (105)",
+      "upgrade2": "Explosion mort (155)"
+    },
+    {
+      "id": "infiltrator",
+      "name": "Infiltrator",
+      "pv": 150,
+      "shards": 55,
+      "dps": 35,
+      "portee": "courte",
+      "upgrade1": "+Vitesse attaque (75)",
+      "upgrade2": "Invisibilité (125)"
+    },
+    {
+      "id": "engineer",
+      "name": "Engineer",
+      "pv": 250,
+      "shards": 90,
+      "dps": 30,
+      "portee": "moyenne",
+      "upgrade1": "Tourelle +20 DPS (115)",
+      "upgrade2": "Double tourelle (165)"
+    },
+    {
+      "id": "exorcist",
+      "name": "Exorcist",
+      "pv": 200,
+      "shards": 95,
+      "dps": 35,
+      "portee": "longue",
+      "upgrade1": "Supprime buffs (120)",
+      "upgrade2": "Annule répa Overseer (170)"
+    },
+    {
+      "id": "berserker",
+      "name": "Berserker",
+      "pv": 200,
+      "shards": 80,
+      "dps": 70,
+      "portee": "courte",
+      "upgrade1": "+Dégâts si PV<50% (100)",
+      "upgrade2": "Rage x2 DPS 5s (150)"
+    },
+    {
+      "id": "sentinel",
+      "name": "Sentinel",
+      "pv": 500,
+      "shards": 110,
+      "dps": 20,
+      "portee": "courte",
+      "upgrade1": "Bouclier +150 PV (130)",
+      "upgrade2": "Réflexion 10% (180)"
+    },
+    {
+      "id": "black_relay",
+      "name": "Black Relay",
+      "pv": 1500,
+      "shards": 500,
+      "unique": true,
+      "mode_melee": {
+        "dps": 100,
+        "portee": "courte"
+      },
+      "mode_ranged": {
+        "dps": 70,
+        "portee": "tres_longue"
+      },
+      "switch_auto": true,
+      "skills": [
+        "Core Slash",
+        "Relay Pulse",
+        "Black Link",
+        "Spire Shot",
+        "Relay Domain"
+      ]
+    }
+  ]
+}
