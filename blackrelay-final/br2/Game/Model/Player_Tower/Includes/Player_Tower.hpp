@@ -33,6 +33,10 @@ public:
     void update(float dt, std::vector<std::unique_ptr<Enemy>>& enemies);
     void upgrade();
     void draw(sf::RenderWindow& window, bool showRange = false);
+    void takeDamage(int dmg);
+    int   getHp()    const;
+    int   getMaxHp() const;
+    float getRange()  const;
 
     sf::Vector2f       getPosition()    const;
     int                getLevel()       const;
@@ -44,6 +48,8 @@ public:
 protected:
     TowerData _data;
     int       _level;
+    int       _hp;
+    int       _maxHp;
     float     _range, _fireRate, _cooldown;
     int       _damage;
 

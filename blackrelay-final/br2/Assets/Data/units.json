@@ -25,7 +25,7 @@
       "name": "Sniper",
       "pv": 150,
       "shards": 70,
-      "dps": 60,
+      "dps": 50,
       "portee": "tres_longue",
       "upgrade1": "+Dégâts (90)",
       "upgrade2": "Tir perforant (140)"

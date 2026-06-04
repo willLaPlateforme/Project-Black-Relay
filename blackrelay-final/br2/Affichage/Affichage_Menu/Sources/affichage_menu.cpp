@@ -1,6 +1,7 @@
 #include "../Includes/affichage_menu.hpp"
 #include "../../../Menu/Includes/Menu.hpp"
 
+// ── Constructeur ──────────────────────────────────────────────────────────────
 Affichage_Menu::Affichage_Menu(sf::RenderWindow& window)
     : _window(window), _menuState(MenuState::MAIN),
       _play(false), _quit(false), _soundEnabled(true)
@@ -8,12 +9,14 @@ Affichage_Menu::Affichage_Menu(sf::RenderWindow& window)
     _font.openFromFile("Assets/Fonts/font.ttf");
 }
 
+// ── Boucle de gestion du menu ─────────────────────────────────────────────────
 void Affichage_Menu::handleEvents() {
-    _play = false; _quit = false;
+    _play = false;
+    _quit = false;
 
     Menu menu(_window);
 
-    // Boucle du menu jusqu'à une action
+    // Boucle jusqu'à une action utilisateur
     while (_window.isOpen() && !_play && !_quit) {
         menu.handleEvents();
         menu.render();
@@ -23,10 +26,14 @@ void Affichage_Menu::handleEvents() {
         menu.resetActivated();
 
         switch (action) {
+
+            // Continuer ou nouvelle partie : lancer le jeu
             case Menu::CONTINUER:
             case Menu::NOUVELLE_PARTIE:
                 _play = true;
                 break;
+
+            // Paramètres : écran son on/off
             case Menu::PARAMETRES: {
                 Options opt(_window, _font);
                 bool back = false;
@@ -37,8 +44,20 @@ void Affichage_Menu::handleEvents() {
                 _soundEnabled = opt.isSoundEnabled();
                 break;
             }
+
+            // Scores : tableau des meilleurs scores
+            case Menu::SCORES: {
+                Scores scores(_window, _font);
+                bool back = false;
+                while (_window.isOpen() && !back) {
+                    scores.handleEvents(back);
+                    scores.render();
+                }
+                break;
+            }
+
+            // Crédits : écran simple
             case Menu::CREDITS: {
-                // Écran crédits simple
                 bool back = false;
                 while (_window.isOpen() && !back) {
                     while (auto ev = _window.pollEvent()) {
@@ -50,13 +69,14 @@ void Affichage_Menu::handleEvents() {
                     sf::Text t(_font);
                     t.setCharacterSize(20);
                     t.setFillColor(sf::Color(220, 30, 30));
-                    t.setString("// CREDITS\n\nProjet Tower Defense\nLa Plateforme 2025\n\n[ESC] Retour");
+                    t.setString("// CREDITS\n\nProjet Tower Defense - Black Relay\nLa Plateforme 2025\n\n[ESC] Retour");
                     t.setPosition({250.f, 200.f});
                     _window.draw(t);
                     _window.display();
                 }
                 break;
             }
+
             case Menu::QUITTER:
                 _quit = true;
                 break;
@@ -64,10 +84,14 @@ void Affichage_Menu::handleEvents() {
     }
 }
 
-void Affichage_Menu::render() {
-    // Appelé uniquement pour le premier frame — la boucle est dans handleEvents
-}
+void Affichage_Menu::render() {}
 
 bool Affichage_Menu::wantsToPlay() const { return _play; }
 bool Affichage_Menu::wantsToQuit() const { return _quit; }
 bool Affichage_Menu::isSoundOn()   const { return _soundEnabled; }
+
+// ── Sauvegarde d'un score depuis le jeu ──────────────────────────────────────
+void Affichage_Menu::saveScore(const std::string& name, int score) {
+    Scores scores(_window, _font);
+    scores.addScore(name, score);
+}

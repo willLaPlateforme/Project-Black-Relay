@@ -38,6 +38,7 @@ public:
     void         setPosition(sf::Vector2f pos);
     std::string  getId()         const;
     std::string  getTypeDegats() const;
+    int          getDps()        const;
 
 protected:
     std::string _id;
@@ -45,6 +46,7 @@ protected:
     int   _hp, _maxHp;
     float _speed;
     int   _reward;
+    int   _dps;
     int   _pathIndex;
     bool  _alive;
 

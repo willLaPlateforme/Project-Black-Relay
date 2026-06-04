@@ -30,7 +30,7 @@ sf::Color Player_Tower::colorForId(const std::string& id) {
 }
 
 Player_Tower::Player_Tower(const TowerData& data, float x, float y)
-    : _data(data), _level(1), _cooldown(0.f)
+    : _data(data), _level(1), _hp(data.pv), _maxHp(data.pv), _cooldown(0.f)
 {
     _range    = porteeToPixels(data.portee);
     _damage   = data.dps;
@@ -111,6 +111,14 @@ Enemy* Player_Tower::_findTarget(std::vector<std::unique_ptr<Enemy>>& enemies) {
     }
     return best;
 }
+
+void Player_Tower::takeDamage(int dmg) {
+    _hp -= dmg;
+    if (_hp < 0) _hp = 0;
+}
+int   Player_Tower::getHp()    const { return _hp; }
+int   Player_Tower::getMaxHp() const { return _maxHp; }
+float Player_Tower::getRange()  const { return _range; }
 
 // ── TowerFactory ──────────────────────────────────────────────────────────────
 void TowerFactory::loadFromJson(const std::string& path) {

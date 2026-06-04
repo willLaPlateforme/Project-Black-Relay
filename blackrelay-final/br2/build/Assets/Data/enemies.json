@@ -3,9 +3,9 @@
     {
       "id": "scout",
       "name": "Scout",
-      "pv": 80,
+      "pv": 180,
       "vitesse": 3,
-      "dps": 8,
+      "dps": 10,
       "drop": 10,
       "scaling_pv": 0.15,
       "type_degats": "single"

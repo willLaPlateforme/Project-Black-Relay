@@ -294,11 +294,34 @@ CMakeFiles/BlackRelay.dir/Affichage/Game/Sources/Game.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
  C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Includes/Game.hpp \
- C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Enemy/Includes/Ennemy.hpp \
  C:/msys64/ucrt64/include/c++/15.2.0/map \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tree.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
+ C:/msys64/ucrt64/include/SFML/Audio.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/InputSoundFile.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/Export.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/SoundFileReader.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/SoundChannel.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/Listener.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/Music.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/SoundStream.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/SoundSource.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/AudioResource.hpp \
+ C:/msys64/ucrt64/include/c++/15.2.0/functional \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
+ C:/msys64/ucrt64/include/SFML/Audio/OutputSoundFile.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/SoundFileWriter.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/PlaybackDevice.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/Sound.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/SoundBuffer.hpp \
+ C:/msys64/ucrt64/include/c++/15.2.0/unordered_set \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
+ C:/msys64/ucrt64/include/SFML/Audio/SoundBufferRecorder.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/SoundRecorder.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/SoundFileFactory.hpp \
+ C:/msys64/ucrt64/include/SFML/Audio/SoundFileFactory.inl \
+ C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Enemy/Includes/Ennemy.hpp \
  C:/msys64/ucrt64/include/c++/15.2.0/fstream \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/basic_file.h \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++io.h \

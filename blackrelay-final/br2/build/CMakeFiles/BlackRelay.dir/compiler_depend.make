@@ -301,6 +301,25 @@ CMakeFiles/BlackRelay.dir/Affichage/Game/Sources/Game.cpp.obj: C:/Users/melvi/On
   C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Includes/Game.hpp \
   C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Includes/Observer.hpp \
   C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Player_Tower/Includes/Player_Tower.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/AudioResource.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Export.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/InputSoundFile.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Listener.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Music.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/OutputSoundFile.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/PlaybackDevice.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Sound.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundBuffer.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundBufferRecorder.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundChannel.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileFactory.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileFactory.inl \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileReader.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileWriter.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundRecorder.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundSource.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundStream.hpp \
   C:/msys64/ucrt64/include/SFML/Config.hpp \
   C:/msys64/ucrt64/include/SFML/Graphics.hpp \
   C:/msys64/ucrt64/include/SFML/Graphics/BlendMode.hpp \
@@ -460,6 +479,7 @@ CMakeFiles/BlackRelay.dir/Affichage/Game/Sources/Game.cpp.obj: C:/Users/melvi/On
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
@@ -486,6 +506,7 @@ CMakeFiles/BlackRelay.dir/Affichage/Game/Sources/Game.cpp.obj: C:/Users/melvi/On
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/utility.h \
@@ -519,6 +540,7 @@ CMakeFiles/BlackRelay.dir/Affichage/Game/Sources/Game.cpp.obj: C:/Users/melvi/On
   C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/filesystem \
   C:/msys64/ucrt64/include/c++/15.2.0/fstream \
+  C:/msys64/ucrt64/include/c++/15.2.0/functional \
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
   C:/msys64/ucrt64/include/c++/15.2.0/iomanip \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
@@ -560,6 +582,7 @@ CMakeFiles/BlackRelay.dir/Affichage/Game/Sources/Game.cpp.obj: C:/Users/melvi/On
   C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
   C:/msys64/ucrt64/include/c++/15.2.0/typeinfo \
   C:/msys64/ucrt64/include/c++/15.2.0/unordered_map \
+  C:/msys64/ucrt64/include/c++/15.2.0/unordered_set \
   C:/msys64/ucrt64/include/c++/15.2.0/utility \
   C:/msys64/ucrt64/include/c++/15.2.0/variant \
   C:/msys64/ucrt64/include/c++/15.2.0/vector \
@@ -627,6 +650,25 @@ CMakeFiles/BlackRelay.dir/Game/Controller/Sources/Game.cpp.obj: C:/Users/melvi/O
   C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Includes/Game.hpp \
   C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Includes/Observer.hpp \
   C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Player_Tower/Includes/Player_Tower.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/AudioResource.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Export.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/InputSoundFile.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Listener.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Music.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/OutputSoundFile.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/PlaybackDevice.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Sound.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundBuffer.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundBufferRecorder.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundChannel.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileFactory.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileFactory.inl \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileReader.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileWriter.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundRecorder.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundSource.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundStream.hpp \
   C:/msys64/ucrt64/include/SFML/Config.hpp \
   C:/msys64/ucrt64/include/SFML/Graphics.hpp \
   C:/msys64/ucrt64/include/SFML/Graphics/BlendMode.hpp \
@@ -786,6 +828,7 @@ CMakeFiles/BlackRelay.dir/Game/Controller/Sources/Game.cpp.obj: C:/Users/melvi/O
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
@@ -812,6 +855,7 @@ CMakeFiles/BlackRelay.dir/Game/Controller/Sources/Game.cpp.obj: C:/Users/melvi/O
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/utility.h \
@@ -845,6 +889,7 @@ CMakeFiles/BlackRelay.dir/Game/Controller/Sources/Game.cpp.obj: C:/Users/melvi/O
   C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/filesystem \
   C:/msys64/ucrt64/include/c++/15.2.0/fstream \
+  C:/msys64/ucrt64/include/c++/15.2.0/functional \
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
   C:/msys64/ucrt64/include/c++/15.2.0/iomanip \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
@@ -886,6 +931,7 @@ CMakeFiles/BlackRelay.dir/Game/Controller/Sources/Game.cpp.obj: C:/Users/melvi/O
   C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
   C:/msys64/ucrt64/include/c++/15.2.0/typeinfo \
   C:/msys64/ucrt64/include/c++/15.2.0/unordered_map \
+  C:/msys64/ucrt64/include/c++/15.2.0/unordered_set \
   C:/msys64/ucrt64/include/c++/15.2.0/utility \
   C:/msys64/ucrt64/include/c++/15.2.0/variant \
   C:/msys64/ucrt64/include/c++/15.2.0/vector \
@@ -1735,6 +1781,25 @@ CMakeFiles/BlackRelay.dir/Game/Model/Sources/Game.cpp.obj: C:/Users/melvi/OneDri
   C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Includes/Game.hpp \
   C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Includes/Observer.hpp \
   C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Player_Tower/Includes/Player_Tower.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/AudioResource.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Export.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/InputSoundFile.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Listener.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Music.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/OutputSoundFile.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/PlaybackDevice.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Sound.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundBuffer.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundBufferRecorder.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundChannel.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileFactory.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileFactory.inl \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileReader.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileWriter.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundRecorder.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundSource.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundStream.hpp \
   C:/msys64/ucrt64/include/SFML/Config.hpp \
   C:/msys64/ucrt64/include/SFML/Graphics.hpp \
   C:/msys64/ucrt64/include/SFML/Graphics/BlendMode.hpp \
@@ -1894,6 +1959,7 @@ CMakeFiles/BlackRelay.dir/Game/Model/Sources/Game.cpp.obj: C:/Users/melvi/OneDri
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
@@ -1920,6 +1986,7 @@ CMakeFiles/BlackRelay.dir/Game/Model/Sources/Game.cpp.obj: C:/Users/melvi/OneDri
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/utility.h \
@@ -1953,6 +2020,7 @@ CMakeFiles/BlackRelay.dir/Game/Model/Sources/Game.cpp.obj: C:/Users/melvi/OneDri
   C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/filesystem \
   C:/msys64/ucrt64/include/c++/15.2.0/fstream \
+  C:/msys64/ucrt64/include/c++/15.2.0/functional \
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
   C:/msys64/ucrt64/include/c++/15.2.0/iomanip \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
@@ -1994,6 +2062,7 @@ CMakeFiles/BlackRelay.dir/Game/Model/Sources/Game.cpp.obj: C:/Users/melvi/OneDri
   C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
   C:/msys64/ucrt64/include/c++/15.2.0/typeinfo \
   C:/msys64/ucrt64/include/c++/15.2.0/unordered_map \
+  C:/msys64/ucrt64/include/c++/15.2.0/unordered_set \
   C:/msys64/ucrt64/include/c++/15.2.0/utility \
   C:/msys64/ucrt64/include/c++/15.2.0/variant \
   C:/msys64/ucrt64/include/c++/15.2.0/vector \
@@ -2776,6 +2845,7 @@ CMakeFiles/BlackRelay.dir/Menu/Sources/Scores.cpp.obj: C:/Users/melvi/OneDrive/B
   C:/msys64/ucrt64/include/c++/15.2.0/bits/fs_fwd.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/fs_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/fs_path.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/fstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/functexcept.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/functional_hash.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hash_bytes.h \
@@ -2869,6 +2939,7 @@ CMakeFiles/BlackRelay.dir/Menu/Sources/Scores.cpp.obj: C:/Users/melvi/OneDrive/B
   C:/msys64/ucrt64/include/c++/15.2.0/ext/string_conversions.h \
   C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/filesystem \
+  C:/msys64/ucrt64/include/c++/15.2.0/fstream \
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
   C:/msys64/ucrt64/include/c++/15.2.0/iomanip \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
@@ -2901,8 +2972,10 @@ CMakeFiles/BlackRelay.dir/Menu/Sources/Scores.cpp.obj: C:/Users/melvi/OneDrive/B
   C:/msys64/ucrt64/include/c++/15.2.0/variant \
   C:/msys64/ucrt64/include/c++/15.2.0/vector \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/basic_file.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++io.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++locale.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
@@ -2963,6 +3036,25 @@ CMakeFiles/BlackRelay.dir/main.cpp.obj: C:/Users/melvi/OneDrive/Bureau/blackrela
   C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Includes/Game.hpp \
   C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Includes/Observer.hpp \
   C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Player_Tower/Includes/Player_Tower.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/AudioResource.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Export.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/InputSoundFile.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Listener.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Music.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/OutputSoundFile.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/PlaybackDevice.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/Sound.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundBuffer.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundBufferRecorder.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundChannel.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileFactory.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileFactory.inl \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileReader.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundFileWriter.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundRecorder.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundSource.hpp \
+  C:/msys64/ucrt64/include/SFML/Audio/SoundStream.hpp \
   C:/msys64/ucrt64/include/SFML/Config.hpp \
   C:/msys64/ucrt64/include/SFML/Graphics.hpp \
   C:/msys64/ucrt64/include/SFML/Graphics/BlendMode.hpp \
@@ -3122,6 +3214,7 @@ CMakeFiles/BlackRelay.dir/main.cpp.obj: C:/Users/melvi/OneDrive/Bureau/blackrela
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
@@ -3148,6 +3241,7 @@ CMakeFiles/BlackRelay.dir/main.cpp.obj: C:/Users/melvi/OneDrive/Bureau/blackrela
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/utility.h \
@@ -3181,6 +3275,7 @@ CMakeFiles/BlackRelay.dir/main.cpp.obj: C:/Users/melvi/OneDrive/Bureau/blackrela
   C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/filesystem \
   C:/msys64/ucrt64/include/c++/15.2.0/fstream \
+  C:/msys64/ucrt64/include/c++/15.2.0/functional \
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
   C:/msys64/ucrt64/include/c++/15.2.0/iomanip \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
@@ -3222,6 +3317,7 @@ CMakeFiles/BlackRelay.dir/main.cpp.obj: C:/Users/melvi/OneDrive/Bureau/blackrela
   C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
   C:/msys64/ucrt64/include/c++/15.2.0/typeinfo \
   C:/msys64/ucrt64/include/c++/15.2.0/unordered_map \
+  C:/msys64/ucrt64/include/c++/15.2.0/unordered_set \
   C:/msys64/ucrt64/include/c++/15.2.0/utility \
   C:/msys64/ucrt64/include/c++/15.2.0/variant \
   C:/msys64/ucrt64/include/c++/15.2.0/vector \
@@ -3334,8 +3430,6 @@ C:/msys64/ucrt64/include/nlohmann/detail/input/lexer.hpp:
 
 C:/msys64/ucrt64/include/nlohmann/detail/input/json_sax.hpp:
 
-C:/msys64/ucrt64/include/nlohmann/detail/input/binary_reader.hpp:
-
 C:/msys64/ucrt64/include/nlohmann/detail/hash.hpp:
 
 C:/msys64/ucrt64/include/nlohmann/thirdparty/hedley/hedley.hpp:
@@ -3346,13 +3440,9 @@ C:/msys64/ucrt64/include/nlohmann/detail/conversions/to_chars.hpp:
 
 C:/msys64/ucrt64/include/nlohmann/detail/conversions/from_json.hpp:
 
-C:/msys64/ucrt64/include/nlohmann/adl_serializer.hpp:
-
 C:/msys64/ucrt64/include/c++/15.2.0/version:
 
 C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h:
-
-C:/msys64/ucrt64/include/c++/15.2.0/functional:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/valarray_before.h:
 
@@ -3376,10 +3466,6 @@ C:/msys64/ucrt64/include/c++/15.2.0/tr1/riemann_zeta.tcc:
 
 C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_hermite.tcc:
 
-C:/msys64/ucrt64/include/nlohmann/detail/meta/std_fs.hpp:
-
-C:/msys64/ucrt64/include/c++/15.2.0/tr1/modified_bessel_func.tcc:
-
 C:/msys64/ucrt64/include/c++/15.2.0/tr1/hypergeometric.tcc:
 
 C:/msys64/ucrt64/include/c++/15.2.0/tr1/exp_integral.tcc:
@@ -3390,9 +3476,9 @@ C:/msys64/ucrt64/include/c++/15.2.0/tr1/bessel_function.tcc:
 
 C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h:
 
-C:/msys64/ucrt64/include/c++/15.2.0/fstream:
+C:/msys64/ucrt64/include/c++/15.2.0/functional:
 
-C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h:
+C:/msys64/ucrt64/include/c++/15.2.0/fstream:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h:
 
@@ -3401,6 +3487,36 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h:
 C:/msys64/ucrt64/include/c++/15.2.0/bits/fstream.tcc:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/algorithmfwd.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h:
+
+C:/msys64/ucrt64/include/SFML/Audio/SoundStream.hpp:
+
+C:/msys64/ucrt64/include/SFML/Audio/SoundSource.hpp:
+
+C:/msys64/ucrt64/include/SFML/Audio/SoundBufferRecorder.hpp:
+
+C:/msys64/ucrt64/include/SFML/Audio/SoundBuffer.hpp:
+
+C:/msys64/ucrt64/include/SFML/Audio/Sound.hpp:
+
+C:/msys64/ucrt64/include/nlohmann/adl_serializer.hpp:
+
+C:/msys64/ucrt64/include/SFML/Audio/PlaybackDevice.hpp:
+
+C:/msys64/ucrt64/include/nlohmann/detail/input/binary_reader.hpp:
+
+C:/msys64/ucrt64/include/SFML/Audio/Music.hpp:
+
+C:/msys64/ucrt64/include/SFML/Audio/Listener.hpp:
+
+C:/msys64/ucrt64/include/SFML/Audio/AudioResource.hpp:
+
+C:/msys64/ucrt64/include/nlohmann/detail/meta/std_fs.hpp:
+
+C:/msys64/ucrt64/include/c++/15.2.0/tr1/modified_bessel_func.tcc:
+
+C:/msys64/ucrt64/include/SFML/Audio.hpp:
 
 C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Player_Tower/Includes/Player_Tower.hpp:
 
@@ -3427,6 +3543,8 @@ C:/msys64/ucrt64/include/wctype.h:
 C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Affichage/Game/Includes/Game.hpp:
 
 C:/msys64/ucrt64/include/vadefs.h:
+
+C:/msys64/ucrt64/include/SFML/Audio/SoundFileFactory.hpp:
 
 C:/msys64/ucrt64/include/stdlib.h:
 
@@ -3476,6 +3594,8 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/fs_fwd.h:
 
 C:/msys64/ucrt64/include/nlohmann/detail/meta/detected.hpp:
 
+C:/msys64/ucrt64/include/SFML/Audio/OutputSoundFile.hpp:
+
 C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/fs_dir.h:
@@ -3491,6 +3611,8 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h:
 C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Game/Model/Includes/Game.hpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h:
+
+C:/msys64/ucrt64/include/SFML/Audio/Export.hpp:
 
 C:/msys64/ucrt64/include/SFML/Graphics/Color.hpp:
 
@@ -3513,6 +3635,8 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono.h:
 C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_laguerre.tcc:
 
 C:/msys64/ucrt64/include/SFML/System/InputStream.hpp:
+
+C:/msys64/ucrt64/include/SFML/Audio/SoundFileReader.hpp:
 
 C:/msys64/ucrt64/include/SFML/Window/WindowEnums.hpp:
 
@@ -3539,6 +3663,8 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/align.h:
 C:/msys64/ucrt64/include/c++/15.2.0/bit:
 
 C:/msys64/ucrt64/include/SFML/Window/Vulkan.hpp:
+
+C:/msys64/ucrt64/include/SFML/Audio/SoundRecorder.hpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/array:
 
@@ -3846,6 +3972,8 @@ C:/msys64/ucrt64/include/sec_api/wchar_s.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h:
 
+C:/msys64/ucrt64/include/c++/15.2.0/unordered_set:
+
 C:/msys64/ucrt64/include/SFML/System/Utf.hpp:
 
 C:/msys64/ucrt64/include/SFML/System/Utf.inl:
@@ -3890,6 +4018,8 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/new_allocator.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_types.h:
 
+C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream_insert.h:
 
 C:/msys64/ucrt64/include/SFML/Window/Context.hpp:
@@ -3926,6 +4056,8 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_construct.h:
 
+C:/msys64/ucrt64/include/SFML/Audio/SoundFileWriter.hpp:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h:
@@ -3949,6 +4081,8 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf.tcc:
 C:/Users/melvi/OneDrive/Bureau/blackrelay-final/br2/Menu/Sources/Menu.cpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/string_view:
+
+C:/msys64/ucrt64/include/SFML/Audio/InputSoundFile.hpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/string_view.tcc:
 
@@ -4020,6 +4154,8 @@ C:/msys64/ucrt64/include/c++/15.2.0/ext/concurrence.h:
 
 C:/msys64/ucrt64/include/nlohmann/detail/exceptions.hpp:
 
+C:/msys64/ucrt64/include/SFML/Audio/SoundFileFactory.inl:
+
 C:/msys64/ucrt64/include/c++/15.2.0/iomanip:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/fs_path.h:
@@ -4061,6 +4197,8 @@ C:/msys64/ucrt64/include/c++/15.2.0/ratio:
 C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/streambuf:
+
+C:/msys64/ucrt64/include/SFML/Audio/SoundChannel.hpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/tuple:
 

@@ -24,10 +24,10 @@ float Enemy::radiusForId(const std::string& id) {
     return 14.f;
 }
 
-// ── Constructeur avec scaling par vague ───────────────────────────────────────
+// ── Constructeur ──────────────────────────────────────────────────────────────
 Enemy::Enemy(const EnemyData& data, int waveNumber)
     : _id(data.id), _typeDegats(data.typeDegats),
-      _reward(data.drop), _pathIndex(0), _alive(true)
+      _reward(data.drop), _pathIndex(0), _alive(true), _dps(data.dps)
 {
     float scale = 1.f + data.scalingPv * (waveNumber - 1);
     _hp    = (int)(data.pv * scale);
@@ -71,24 +71,25 @@ void Enemy::draw(sf::RenderWindow& window) {
     window.draw(_hpBar);
 }
 
-void         Enemy::kill()                       { _alive = false; _reward = 0; }
-void         Enemy::clearReward()                { _reward = 0; }
-bool         Enemy::isAlive()        const       { return _alive; }
-int          Enemy::getReward()      const       { return _reward; }
-int          Enemy::getPathIndex()   const       { return _pathIndex; }
-sf::Vector2f Enemy::getPosition()    const       { return _shape.getPosition(); }
-std::string  Enemy::getId()          const       { return _id; }
-std::string  Enemy::getTypeDegats()  const       { return _typeDegats; }
-void         Enemy::setPosition(sf::Vector2f p)  { _shape.setPosition(p); }
+int          Enemy::getDps()          const       { return _dps; }
+void         Enemy::kill()                        { _alive = false; _reward = 0; }
+void         Enemy::clearReward()                 { _reward = 0; }
+bool         Enemy::isAlive()         const       { return _alive; }
+int          Enemy::getReward()       const       { return _reward; }
+int          Enemy::getPathIndex()    const       { return _pathIndex; }
+sf::Vector2f Enemy::getPosition()     const       { return _shape.getPosition(); }
+std::string  Enemy::getId()           const       { return _id; }
+std::string  Enemy::getTypeDegats()   const       { return _typeDegats; }
+void         Enemy::setPosition(sf::Vector2f p)   { _shape.setPosition(p); }
 
 // ── EnemyFactory ──────────────────────────────────────────────────────────────
 void EnemyFactory::loadFromJson(const std::string& path) {
     std::ifstream f(path);
     if (!f.is_open()) {
-        // Essai chemin alternatif
         std::ifstream f2("../Assets/Data/enemies.json");
         if (!f2.is_open()) return;
         auto j = nlohmann::json::parse(f2);
+        _catalog.clear();
         for (auto& e : j["enemies"]) {
             EnemyData d;
             d.id         = e["id"].get<std::string>();
@@ -120,7 +121,6 @@ void EnemyFactory::loadFromJson(const std::string& path) {
 }
 
 std::unique_ptr<Enemy> EnemyFactory::create(const std::string& id, int wave) {
-    // Fallback si le catalogue est vide
     if (_catalog.empty()) {
         EnemyData d; d.id = id; d.name = id;
         d.pv = 100; d.vitesse = 2; d.dps = 10; d.drop = 10;
