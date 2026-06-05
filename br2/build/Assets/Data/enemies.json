@@ -1,0 +1,66 @@
+{
+  "enemies": [
+    {
+      "id": "scout",
+      "name": "Scout",
+      "pv": 180,
+      "vitesse": 3,
+      "dps": 10,
+      "drop": 10,
+      "scaling_pv": 0.15,
+      "type_degats": "single"
+    },
+    {
+      "id": "infected",
+      "name": "Infected",
+      "pv": 200,
+      "vitesse": 2,
+      "dps": 15,
+      "drop": 20,
+      "scaling_pv": 0.20,
+      "type_degats": "single"
+    },
+    {
+      "id": "destroyer",
+      "name": "Destroyer",
+      "pv": 600,
+      "vitesse": 1,
+      "dps": 35,
+      "drop": 50,
+      "scaling_pv": 0.25,
+      "type_degats": "single"
+    },
+    {
+      "id": "blighter",
+      "name": "Blighter",
+      "pv": 300,
+      "vitesse": 2,
+      "dps": 20,
+      "drop": 35,
+      "scaling_pv": 0.20,
+      "type_degats": "aoe"
+    },
+    {
+      "id": "overseer",
+      "name": "Overseer",
+      "pv": 250,
+      "vitesse": 2,
+      "dps": 10,
+      "drop": 45,
+      "scaling_pv": 0.15,
+      "type_degats": "single"
+    },
+    {
+      "id": "boss",
+      "name": "Boss",
+      "pv": 0,
+      "vitesse": 0,
+      "dps": 0,
+      "drop": 0,
+      "scaling_pv": 0.30,
+      "type_degats": "special",
+      "design": "TODO",
+      "mechanics": "TODO"
+    }
+  ]
+}
