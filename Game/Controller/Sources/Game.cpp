@@ -6,10 +6,8 @@ Controller::Controller(sf::RenderWindow& window, Game& game)
 void Controller::handleEvents() {
     while (auto event = _window.pollEvent()) {
         if (event->is<sf::Event::Closed>()) _window.close();
-
         if (auto* key = event->getIf<sf::Event::KeyPressed>())
             _onKeyPressed(key->code);
-
         if (auto* click = event->getIf<sf::Event::MouseButtonPressed>()) {
             if (click->button == sf::Mouse::Button::Left)
                 _onMouseClick((float)click->position.x, (float)click->position.y);
@@ -25,20 +23,26 @@ void Controller::_onKeyPressed(sf::Keyboard::Key key) {
         case K::Escape:
             if (_game.getState() == GameState::PLAYING ||
                 _game.getState() == GameState::PAUSED)
-                _game.setState(GameState::MENU);   // signal retour menu
+                _game.setState(GameState::MENU);
             else
                 _window.close();
             break;
         case K::Enter:
             if (_game.getState() == GameState::VICTORY ||
                 _game.getState() == GameState::DEFEAT)
-                _game.setState(GameState::MENU);   // retour menu après fin
+                _game.setState(GameState::MENU);
             break;
         case K::P:
             if (_game.getState() == GameState::PLAYING)
                 _game.setState(GameState::PAUSED);
             else if (_game.getState() == GameState::PAUSED)
                 _game.setState(GameState::PLAYING);
+            break;
+        // ── Abandonner la partie (depuis jeu ou pause) ────────────────────────
+        case K::A:
+            if (_game.getState() == GameState::PLAYING ||
+                _game.getState() == GameState::PAUSED)
+                _game.setState(GameState::DEFEAT);  // score sauvegardé dans main.cpp
             break;
         case K::Space:
             _game.launchNextWave();
