@@ -3,7 +3,7 @@
 ### DEFEND // RESIST // SURVIVE
 
 > Projet étudiant — Tower Defense en C++ / SFML 3  
-> La Plateforme — Promo 2025
+> La Plateforme — Promo 2026
 
 ---
 
@@ -477,16 +477,16 @@ Création centralisée des objets :
 
 | Composant | Développeur |
 |-----------|-------------|
-| `Game/Model/` (Game, WaveManager, Slot) | Melvin |
-| `Game/Model/Enemy/` (Enemy, sous-classes, EnemyFactory) | Melvin |
-| `Game/Model/Player_Tower/` (Player_Tower, TowerFactory) | Melvin |
-| `Game/Controller/` | Melvin |
-| `Affichage/Game/` (GameView) | Melvin |
-| `Menu/` (Menu, Options, Scores) | Collègue |
-| `Affichage/Affichage_Menu/` | Collègue |
-| `Affichage/Affichage_Options/` | Collègue |
-| `main.cpp` fusionné | Melvin + Collègue |
-| `CMakeLists.txt` fusionné | Melvin + Collègue |
+| `Game/Model/` (Game, WaveManager, Slot) | Melvin Vincent |
+| `Game/Model/Enemy/` (Enemy, sous-classes, EnemyFactory) | Melvin Vincent |
+| `Game/Model/Player_Tower/` (Player_Tower, TowerFactory) | Melvin Vincent |
+| `Game/Controller/` | Melvin Vincent |
+| `Affichage/Game/` (GameView) | Melvin Vincent |
+| `Menu/` (Menu, Options, Scores) | Guillaume Ciampa |
+| `Affichage/Affichage_Menu/` | Guillaume Ciampa |
+| `Affichage/Affichage_Options/` | Guillaume Ciampa |
+| `main.cpp` fusionné | Melvin Vincent + Guillaume Ciampa |
+| `CMakeLists.txt` fusionné | Melvin Vincent + Guillaume Ciampa |
 
 ### Fusion des deux parties
 
@@ -512,4 +512,4 @@ Les deux modules ont été développés indépendamment puis fusionnés :
 
 ---
 
-*Black Relay — La Plateforme 2025*
+*Black Relay — La Plateforme 2026*
