@@ -8,7 +8,6 @@
 #include <fstream>
 #include <cmath>
 
-// ── EnemyData : données chargées depuis enemies.json ─────────────────────────
 struct EnemyData {
     std::string id;
     std::string name;
@@ -20,16 +19,13 @@ struct EnemyData {
     std::string typeDegats = "single";
 };
 
-// ── AnimState : état d'animation possible ────────────────────────────────────
 enum class AnimState { IDLE, WALK, ATTACK, DEATH };
 
-// ── Animation : séquence de frames SFML ─────────────────────────────────────
 struct Animation {
-    std::vector<sf::Texture> frames;  // textures de chaque frame
-    float                    fps;     // vitesse d'animation
+    std::vector<sf::Texture> frames;
+    float                    fps;
 };
 
-// ── Enemy : classe de base avec système d'animation ─────────────────────────
 class Enemy {
 public:
     Enemy(const EnemyData& data, int waveNumber);
@@ -39,13 +35,12 @@ public:
     virtual void takeDamage(int dmg);
     virtual void draw(sf::RenderWindow& window);
 
-    // Met à jour l'animation selon l'état (appelé chaque frame)
     void updateAnimation(float dt);
 
     void         kill();
     void         clearReward();
     bool         isAlive()       const;
-    bool         isDead()        const; // mort ET animation de mort terminée
+    bool         isDead()        const;
     int          getReward()     const;
     int          getPathIndex()  const;
     int          getDps()        const;
@@ -65,23 +60,20 @@ protected:
     bool        _alive;
     bool        _deathAnimDone;
 
-    // ── Système de sprite animé ───────────────────────────────────────────────
-    std::map<AnimState, Animation> _animations;  // toutes les animations
-    AnimState                      _currentAnim; // animation en cours
-    int                            _currentFrame;// frame courante
-    float                          _frameTimer;  // timer pour changer de frame
-    bool                           _spriteLoaded;// sprites chargés avec succès
-    std::optional<sf::Sprite>      _sprite;      // sprite actuel (SFML3 : nécessite une texture)
-    float                          _scale;       // échelle d'affichage
+    std::map<AnimState, Animation> _animations;
+    AnimState                      _currentAnim;
+    int                            _currentFrame;
+    float                          _frameTimer;
+    bool                           _spriteLoaded;
+    std::optional<sf::Sprite>      _sprite;
+    float                          _scale;
 
-    // Fallback : cercle coloré si pas de sprite
     sf::CircleShape    _shape;
     sf::RectangleShape _hpBarBg;
     sf::RectangleShape _hpBar;
 
-    // ── Méthodes internes ─────────────────────────────────────────────────────
-    void _loadSprites();        // charge les PNG depuis Assets/Sprites/{id}/
-    void _setAnim(AnimState s); // change d'animation
+    void _loadSprites();
+    void _setAnim(AnimState s);
     void _drawHpBar(sf::RenderWindow& window);
 
     static sf::Color colorForId(const std::string& id);
@@ -89,57 +81,51 @@ protected:
     static float     scaleForId(const std::string& id);
 };
 
-// ── Sous-classes : chaque ennemi avec ses particularités ─────────────────────
-
-// Scout : rapide, peu résistant
 class Scout : public Enemy {
 public:
     Scout(const EnemyData& d, int w) : Enemy(d, w) {}
 };
 
-// Infected : unité standard équilibrée
 class Infected : public Enemy {
 public:
     Infected(const EnemyData& d, int w) : Enemy(d, w) {}
 };
 
-// Destroyer : très résistant, armure 20%
 class Destroyer : public Enemy {
 public:
     Destroyer(const EnemyData& d, int w) : Enemy(d, w) {}
     void takeDamage(int dmg) override {
-        Enemy::takeDamage((int)(dmg * 0.8f)); // armure 20%
+        Enemy::takeDamage((int)(dmg * 0.8f));
     }
 };
 
-// Blighter : dégâts AoE (gérés dans Game)
 class Blighter : public Enemy {
 public:
     Blighter(const EnemyData& d, int w) : Enemy(d, w) {}
 };
 
-// Overseer : soutien (boost alliés, géré dans Game)
 class Overseer : public Enemy {
 public:
     Overseer(const EnemyData& d, int w) : Enemy(d, w) {}
 };
 
-// Boss : armure 30%, très puissant
 class BossEnemy : public Enemy {
 public:
     BossEnemy(const EnemyData& d, int w) : Enemy(d, w) {}
     void takeDamage(int dmg) override {
-        Enemy::takeDamage((int)(dmg * 0.7f)); // armure 30%
+        Enemy::takeDamage((int)(dmg * 0.7f));
     }
 };
 
-// ── EnemyFactory : crée les ennemis depuis leur id ───────────────────────────
+// ── EnemyFactory ──────────────────────────────────────────────────────────────
 class EnemyFactory {
 public:
     static void loadFromJson(const std::string& path);
     static std::unique_ptr<Enemy> create(const std::string& id, int wave = 1);
+    static void setDiffMult(float mult);   // <-- AJOUT difficulté
     static bool hasId(const std::string& id);
     static const std::map<std::string, EnemyData>& getCatalog();
+    static inline float _diffMult = 1.0f;  // <-- AJOUT difficulté
 
 private:
     static inline std::map<std::string, EnemyData> _catalog;

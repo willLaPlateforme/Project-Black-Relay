@@ -3,7 +3,6 @@
 #include <fstream>
 #include <stdexcept>
 
-// ── Couleurs et rayons par id ─────────────────────────────────────────────────
 sf::Color Enemy::colorForId(const std::string& id) {
     if (id == "scout")     return sf::Color(80,  200, 80);
     if (id == "infected")  return sf::Color(180, 120, 60);
@@ -33,7 +32,7 @@ float Enemy::scaleForId(const std::string& id) {
     return 0.40f;
 }
 
-// ── Constructeur ──────────────────────────────────────────────────────────────
+// ── Constructeur : applique le multiplicateur de difficulté ───────────────────
 Enemy::Enemy(const EnemyData& data, int waveNumber)
     : _id(data.id), _typeDegats(data.typeDegats),
       _reward(data.drop), _pathIndex(0), _alive(true),
@@ -43,14 +42,15 @@ Enemy::Enemy(const EnemyData& data, int waveNumber)
       _scale(scaleForId(data.id))
 {
     float scale = 1.f + data.scalingPv * (waveNumber - 1);
-    _hp    = (int)(data.pv * scale);
-    _maxHp = _hp;
-    _speed = data.vitesse * 40.f;
 
-    // Chargement des sprites (silencieux si pas trouvés)
+    // Application du multiplicateur de difficulté sur PV, vitesse et DPS
+    _hp    = (int)(data.pv    * scale * EnemyFactory::_diffMult);
+    _maxHp = _hp;
+    _speed = data.vitesse * 40.f * EnemyFactory::_diffMult;
+    _dps   = (int)(data.dps   * EnemyFactory::_diffMult);
+
     _loadSprites();
 
-    // Fallback cercle coloré
     float r = radiusForId(data.id);
     _shape.setRadius(r);
     _shape.setOrigin({r, r});
@@ -64,7 +64,6 @@ Enemy::Enemy(const EnemyData& data, int waveNumber)
     _hpBar.setFillColor(sf::Color(0, 210, 0));
 }
 
-// ── Chargement des sprites ────────────────────────────────────────────────────
 void Enemy::_loadSprites() {
     struct AnimDef { AnimState state; std::string folder; int frames; float fps; };
     std::vector<AnimDef> defs;
@@ -74,7 +73,7 @@ void Enemy::_loadSprites() {
     else if (_id == "destroyer") defs = {{AnimState::WALK,"walk",5, 8.f},{AnimState::DEATH,"death",5,8.f}};
     else if (_id == "blighter")  defs = {{AnimState::WALK,"walk",8,10.f},{AnimState::DEATH,"death",4,8.f}};
     else if (_id == "overseer")  defs = {{AnimState::WALK,"float",4,8.f},{AnimState::DEATH,"death",3,8.f}};
-    else return; // boss : pas de sprite
+    else return;
 
     std::string base = "Assets/Sprites/" + _id + "/";
 
@@ -97,7 +96,6 @@ void Enemy::_loadSprites() {
         _animations[def.state] = std::move(anim);
     }
 
-    // Initialiser le sprite avec la première frame de WALK
     if (_animations.count(AnimState::WALK) &&
         !_animations[AnimState::WALK].frames.empty()) {
         auto& tex = _animations[AnimState::WALK].frames[0];
@@ -109,7 +107,6 @@ void Enemy::_loadSprites() {
     }
 }
 
-// ── Changement d'animation ────────────────────────────────────────────────────
 void Enemy::_setAnim(AnimState s) {
     if (!_spriteLoaded) return;
     if (_currentAnim == s) return;
@@ -126,7 +123,6 @@ void Enemy::_setAnim(AnimState s) {
     _sprite->setOrigin({sz.x / 2.f, sz.y / 2.f});
 }
 
-// ── Mise à jour de l'animation ────────────────────────────────────────────────
 void Enemy::updateAnimation(float dt) {
     if (!_spriteLoaded || !_sprite.has_value()) return;
     if (!_animations.count(_currentAnim)) return;
@@ -149,13 +145,11 @@ void Enemy::updateAnimation(float dt) {
             _currentFrame = (_currentFrame + 1) % (int)anim.frames.size();
         }
 
-        if (_currentFrame < (int)anim.frames.size()) {
+        if (_currentFrame < (int)anim.frames.size())
             _sprite->setTexture(anim.frames[_currentFrame]);
-        }
     }
 }
 
-// ── Déplacement ───────────────────────────────────────────────────────────────
 void Enemy::move(const std::vector<sf::Vector2f>& path, float dt) {
     if (_pathIndex >= (int)path.size()) return;
 
@@ -177,7 +171,6 @@ void Enemy::move(const std::vector<sf::Vector2f>& path, float dt) {
     updateAnimation(dt);
 }
 
-// ── Dégâts ────────────────────────────────────────────────────────────────────
 void Enemy::takeDamage(int dmg) {
     _hp -= dmg;
     if (_hp <= 0) {
@@ -188,7 +181,6 @@ void Enemy::takeDamage(int dmg) {
     }
 }
 
-// ── Dessin ────────────────────────────────────────────────────────────────────
 void Enemy::draw(sf::RenderWindow& window) {
     sf::Vector2f pos = _shape.getPosition();
 
@@ -199,7 +191,6 @@ void Enemy::draw(sf::RenderWindow& window) {
         window.draw(_shape);
     }
 
-    // Barre de vie
     float r    = _shape.getRadius();
     float barW = r * 2.4f;
     _hpBarBg.setPosition({pos.x - barW/2.f, pos.y - r - 10.f});
@@ -209,7 +200,6 @@ void Enemy::draw(sf::RenderWindow& window) {
     window.draw(_hpBar);
 }
 
-// ── Getters ───────────────────────────────────────────────────────────────────
 void         Enemy::kill()                       { _alive = false; _reward = 0; if (_spriteLoaded && _animations.count(AnimState::DEATH)) _setAnim(AnimState::DEATH); }
 void         Enemy::clearReward()                { _reward = 0; }
 bool         Enemy::isAlive()        const       { return _alive; }
@@ -223,6 +213,8 @@ std::string  Enemy::getTypeDegats()  const       { return _typeDegats; }
 void         Enemy::setPosition(sf::Vector2f p)  { _shape.setPosition(p); }
 
 // ── EnemyFactory ──────────────────────────────────────────────────────────────
+void EnemyFactory::setDiffMult(float mult) { _diffMult = mult; }
+
 void EnemyFactory::loadFromJson(const std::string& path) {
     std::ifstream f(path);
     if (!f.is_open()) {

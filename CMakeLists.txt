@@ -9,22 +9,40 @@ find_package(nlohmann_json REQUIRED)
 
 set(SOURCES
     main.cpp
-    Affichage/Affichage_Menu/Sources/affichage_menu.cpp
-    Affichage/Game/Sources/Game.cpp
-    Game/Model/Sources/Game.cpp
-    Game/Model/Enemy/Sources/Ennemy.cpp
-    Game/Model/Player_Tower/Sources/Player_Tower.cpp
-    Game/Controller/Sources/Game.cpp
+
+    # Menu (collègue)
     Menu/Sources/Menu.cpp
     Menu/Sources/Options.cpp
     Menu/Sources/Scores.cpp
+
+    # Affichage Menu (collègue)
+    Affichage/Affichage_Menu/Sources/affichage_menu.cpp
+    Affichage/Affichage_Options/Sources/Affichage_Options.cpp
+
+    # Game Model (toi)
+    Game/Model/Sources/Game.cpp
+    Game/Model/Enemy/Sources/Ennemy.cpp
+    Game/Model/Player_Tower/Sources/Player_Tower.cpp
+
+    # Game Controller (toi)
+    Game/Controller/Sources/Game.cpp
+
+    # Game View (toi)
+    Affichage/Game/Sources/Game.cpp
 )
+
+if(WIN32)
+    list(APPEND SOURCES "Assets/Icones/Ico/app.rc")
+endif()
 
 add_executable(BlackRelay ${SOURCES})
 target_include_directories(BlackRelay PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_link_libraries(BlackRelay
-    SFML::Graphics SFML::Audio SFML::Window SFML::System
+    SFML::Graphics
+    SFML::Audio
+    SFML::Window
+    SFML::System
     nlohmann_json::nlohmann_json
 )
 

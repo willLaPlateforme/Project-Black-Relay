@@ -1,58 +1,103 @@
 #include <SFML/Graphics.hpp>
+#include "Affichage/Affichage_Menu/Includes/affichage_menu.hpp"
 #include "Game/Model/Includes/Game.hpp"
 #include "Game/Controller/Includes/Game.hpp"
-#include "Affichage/Affichage_Menu/Includes/affichage_menu.hpp"
 #include "Affichage/Game/Includes/Game.hpp"
 
 int main() {
-    // ── Fenêtre principale ────────────────────────────────────────────────────
+    // ── Phase Menu : fenêtre 1280x720 (résolution collègue) ──────────────────
     sf::RenderWindow window(
-    sf::VideoMode({1448, 1030}),
-    "Tower Defense - Black Relay",
-    sf::Style::Titlebar | sf::Style::Close
-);
-
+        sf::VideoMode({1280, 720}),
+        "Black Relay",
+        sf::Style::Titlebar | sf::Style::Close
+    );
     window.setFramerateLimit(60);
 
-    // ── Création des composants MVC ───────────────────────────────────────────
-    Game           model;                    // Modèle : logique du jeu
-    Controller     controller(window, model); // Contrôleur : événements
-    Affichage_Menu menuView(window);          // Vue : menu principal
-    GameView       gameView(window);          // Vue : jeu en cours
+    // Icône
+    sf::Image icon;
+    if (icon.loadFromFile("Assets/Icones/Ico/Black Relay.png"))
+        window.setIcon(icon);
 
-    // Branchement Observer : la vue reçoit les notifications du modèle
-    model.addObserver(&gameView);
+    // ── Composants MVC ────────────────────────────────────────────────────────
+    Game           model;
+    Affichage_Menu menuView(window);
 
-    // ── Boucle principale du jeu ──────────────────────────────────────────────
-    sf::Clock clock;
+    // ── Boucle principale ──────────────────────────────────────────────────────
     while (window.isOpen()) {
-        float dt = clock.restart().asSeconds();
 
-        if (model.getState() == GameState::MENU) {
-            // ── Boucle menu ───────────────────────────────────────────────────
-            menuView.handleEvents();
+        // ── ÉTAT MENU ─────────────────────────────────────────────────────────
+        // handleEvents() de Affichage_Menu gère sa propre boucle interne
+        menuView.handleEvents();
 
-            if (menuView.wantsToQuit())
-                window.close();
+        if (menuView.wantsToQuit()) {
+            window.close();
+            break;
+        }
 
-            if (menuView.wantsToPlay()) {
-                // Transmettre le réglage son du menu vers le modèle
-                model.setSoundEnabled(menuView.isSoundOn());
-                model.startGame();
+        if (menuView.wantsToPlay()) {
+            // ── Transition : redimensionner en 1448x1030 pour le jeu ─────────
+            window.close();
+            window.create(
+                sf::VideoMode({1448, 1030}),
+                "Black Relay - In Game",
+                sf::Style::Titlebar | sf::Style::Close
+            );
+            window.setFramerateLimit(60);
+            if (icon.getSize().x > 0) window.setIcon(icon);
+
+            // Instancier Controller et GameView maintenant que la fenêtre est en 1448x1030
+            Controller controller(window, model);
+            GameView   gameView(window);
+            model.addObserver(&gameView);
+
+            // Transmettre les réglages du menu
+            model.setSoundEnabled(menuView.isSoundOn());
+            model.setDifficulte(menuView.getDifficulte());
+            model.startGame();
+
+            // ── BOUCLE JEU ────────────────────────────────────────────────────
+            sf::Clock clock;
+            bool backToMenu = false;
+
+            while (window.isOpen() && !backToMenu) {
+                float dt = clock.restart().asSeconds();
+
+                controller.handleEvents();
+
+                // ESC depuis le jeu → retour menu
+                if (model.getState() == GameState::MENU) {
+                    backToMenu = true;
+                    break;
+                }
+
+                model.update(dt);
+                gameView.render(model);
+
+                // Fin de partie : sauvegarder le score
+                if (model.getState() == GameState::VICTORY ||
+                    model.getState() == GameState::DEFEAT) {
+                    if (model.getScore() > 0)
+                        menuView.saveScore("CMD", model.getScore());
+                    // Attendre que le joueur appuie sur ENTREE (géré dans gameView/controller)
+                    // Quand il le fait, le modèle repasse en MENU
+                    if (model.getState() == GameState::MENU)
+                        backToMenu = true;
+                }
             }
 
-        } else {
-            // ── Boucle jeu ────────────────────────────────────────────────────
-            controller.handleEvents();
-            model.update(dt);
-            gameView.render(model);
+            if (backToMenu && window.isOpen()) {
+                // ── Retour : redimensionner en 1280x720 pour le menu ─────────
+                window.close();
+                window.create(
+                    sf::VideoMode({1280, 720}),
+                    "Black Relay",
+                    sf::Style::Titlebar | sf::Style::Close
+                );
+                window.setFramerateLimit(60);
+                if (icon.getSize().x > 0) window.setIcon(icon);
 
-            // Sauvegarder le score en fin de partie
-            if (model.getState() == GameState::VICTORY ||
-                model.getState() == GameState::DEFEAT) {
-                if (model.getScore() > 0) {
-                    menuView.saveScore("CMD", model.getScore());
-                }
+                // Réinitialiser le menuView avec la nouvelle fenêtre
+                menuView.rebind(window);
             }
         }
     }

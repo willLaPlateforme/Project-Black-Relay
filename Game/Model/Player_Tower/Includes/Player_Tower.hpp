@@ -6,10 +6,10 @@
 #include <map>
 #include <cmath>
 #include <fstream>
+#include <optional>
 
 class Enemy;
 
-// ── TowerData : données lues depuis units.json ────────────────────────────────
 struct TowerData {
     std::string id;
     std::string name;
@@ -23,6 +23,14 @@ struct TowerData {
     bool        unique     = false;
 };
 
+// ── Animation : séquence de frames ───────────────────────────────────────────
+enum class TowerAnimState { IDLE, WALK, DEATH };
+
+struct TowerAnimation {
+    std::vector<sf::Texture> frames;
+    float                    fps = 8.f;
+};
+
 // ── Player_Tower ──────────────────────────────────────────────────────────────
 class Player_Tower {
 public:
@@ -34,13 +42,13 @@ public:
     void upgrade();
     void draw(sf::RenderWindow& window, bool showRange = false);
     void takeDamage(int dmg);
-    int   getHp()    const;
-    int   getMaxHp() const;
-    float getRange()  const;
 
-    sf::Vector2f       getPosition()    const;
-    int                getLevel()       const;
-    int                getCost()        const;
+    int          getHp()           const;
+    int          getMaxHp()        const;
+    float        getRange()        const;
+    sf::Vector2f getPosition()     const;
+    int          getLevel()        const;
+    int          getCost()         const;
     const std::string& getId()          const;
     const std::string& getName()        const;
     const std::string& getUpgradeDesc() const;
@@ -53,13 +61,28 @@ protected:
     float     _range, _fireRate, _cooldown;
     int       _damage;
 
+    // ── Sprite animé ──────────────────────────────────────────────────────────
+    std::map<TowerAnimState, TowerAnimation> _animations;
+    TowerAnimState    _currentAnim  = TowerAnimState::IDLE;
+    int               _currentFrame = 0;
+    float             _frameTimer   = 0.f;
+    bool              _spriteLoaded = false;
+    std::optional<sf::Sprite> _sprite;
+    float             _spriteScale  = 1.f;
+
+    // Fallback rectangle coloré
     sf::RectangleShape _shape;
     sf::CircleShape    _rangeCircle;
 
+    // ── Méthodes internes ─────────────────────────────────────────────────────
+    void  _loadSprites();
+    void  _setAnim(TowerAnimState s);
+    void  _updateAnimation(float dt);
     Enemy* _findTarget(std::vector<std::unique_ptr<Enemy>>& enemies);
 
     static float     porteeToPixels(const std::string& p);
     static sf::Color colorForId(const std::string& id);
+    static float     scaleForId(const std::string& id);
 };
 
 // ── TowerFactory ──────────────────────────────────────────────────────────────
@@ -67,10 +90,7 @@ class TowerFactory {
 public:
     static void loadFromJson(const std::string& path);
     static std::unique_ptr<Player_Tower> create(const std::string& id, float x, float y);
-
-    // Compatibilité touches 1/2/3 → vrais ids JSON
-    static std::unique_ptr<Player_Tower> createCompat(const std::string& type,
-                                                       float x, float y);
+    static std::unique_ptr<Player_Tower> createCompat(const std::string& type, float x, float y);
     static bool hasId(const std::string& id);
     static const std::map<std::string, TowerData>& getCatalog();
 
